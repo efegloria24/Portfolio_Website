@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Glory Oyiboka | Data Analyst & Operations Specialist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #090B10;
+      --bg-surface: #0F131C;
+      --bg-card: rgba(21, 26, 38, 0.7);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(56, 189, 248, 0.3);
+      --text-main: #F1F5F9;
+      --text-muted: #94A3B8;
+      --accent-cyan: #38BDF8;
+      --accent-indigo: #6366F1;
+      --accent-gradient: linear-gradient(135deg, #38BDF8 0%, #6366F1 100%);
+      --glow: rgba(56, 189, 248, 0.15);
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --radius-pill: 9999px;
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 85% 65%, rgba(99, 102, 241, 0.05) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Typography Helpers */
+    .gradient-text {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(9, 11, 16, 0.8);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: #090B10;
+      box-shadow: 0 4px 20px var(--glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: var(--border);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: var(--radius-pill);
+      color: var(--accent-cyan);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent-cyan);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 38rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .quick-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .meta-item {
+      font-size: 0.85rem;
+    }
+
+    .meta-label {
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .meta-value {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* Profile Card / Avatar */
+    .profile-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .avatar-ring {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      background: var(--bg-surface);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent-cyan);
+    }
+
+    .profile-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .profile-card p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 3rem;
+    }
+
+    .section-subtitle {
+      color: var(--accent-cyan);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem;
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+    }
+
+    .skill-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
+    }
+
+    .skill-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-header {
+      padding: 1.5rem 1.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .project-type {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.1);
+      padding: 0.3rem 0.7rem;
+      border-radius: var(--radius-pill);
+    }
+
+    .project-body {
+      padding: 0 1.5rem 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.2rem;
+      flex-grow: 1;
+    }
+
+    .project-tools {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .tool-pill {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    /* Modal System */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(9, 11, 16, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      max-width: 700px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      transform: scale(0.95);
+      transition: var(--transition);
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      color: var(--text-main);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .modal-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-section h4 {
+      color: var(--accent-cyan);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    .modal-section p, .modal-section ul {
+      color: var(--text-main);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .modal-section ul {
+      list-style-position: inside;
+      padding-left: 0.5rem;
+    }
+
+    /* Footer / Contact */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 5rem 0 3rem;
+      background: var(--bg-surface);
+    }
+
+    .cta-box {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    .cta-box h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .cta-box p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 868px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 4rem 0 2rem;
+      }
+
+      .profile-card {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-wrapper">
+      <a href="#" class="brand">
+        <span class="brand-dot"></span>
+        Glory Oyiboka
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="mailto:efegloria24@gmail.com" class="btn btn-primary">Get in Touch</a>
+    </div>
+  </nav>
+
+  <!-- Main Content Wrap -->
+  <main class="container">
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Available for Analytics & Operations Roles
+        </div>
+        <h1 class="hero-title">
+          Transforming complex data into <span class="gradient-text">actionable decisions.</span>
+        </h1>
+        <p class="hero-desc">
+          Data Analyst, Administrator, and Basic Web Developer skilled in building interactive dashboards, managing financial records, and designing clean responsive websites.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Explore Portfolio</a>
+          <a href="https://github.com/efegloria24" target="_blank" rel="noopener" class="btn btn-secondary">GitHub Profile</a>
+        </div>
+        <div class="quick-meta">
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">Nigeria</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Core Focus</span>
+            <span class="meta-value">Data & Financial Admin</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Email</span>
+            <span class="meta-value">efegloria24@gmail.com</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Avatar Card -->
+      <div class="profile-card">
+        <div class="avatar-wrapper">
+          <div class="avatar-ring">
+            <div class="avatar-inner">GO</div>
+          </div>
+        </div>
+        <h3>Glory Oyiboka</h3>
+        <p>Data Analyst & Admin</p>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="section-header">
+        <span class="section-subtitle">Capabilities</span>
+        <h2 class="section-title">Technical Expertise</h2>
+      </div>
+      
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>📊 Technical Analytics</h3>
+          <div class="skill-tags">
+            <span class="tag">Data Validation</span>
+            <span class="tag">Data Analysis</span>
+            <span class="tag">Data Cleaning</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>📈 Business Intelligence</h3>
+          <div class="skill-tags">
+            <span class="tag">Power BI</span>
+            <span class="tag">DAX Modeling</span>
+            <span class="tag">Power Query</span>
+            <span class="tag">Excel Analytics</span>
+            <span class="tag">Dashboard Design</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>💼 Administration & Finance</h3>
+          <div class="skill-tags">
+            <span class="tag">Financial Record-Keeping</span>
+            <span class="tag">Ledger Reconciliation</span>
+            <span class="tag">Process Optimization</span>
+            <span class="tag">Executive Reporting</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🎨 Basic Website Development</h3>
+          <div class="skill-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Responsive Layouts</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="section-header">
+        <span class="section-subtitle">Portfolio</span>
+        <h2 class="section-title">Featured Case Studies</h2>
+      </div>
+
+      <div class="projects-grid">
+        
+        <!-- Project 1 -->
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-type">Power BI Dashboard</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Sales Performance Analysis</h3>
+            <p class="project-desc">
+              Multi-table analysis tracking ₦2.33B in revenue across 2,098 customers to pinpoint profit leakage and margin trends.
+            </p>
+            <div class="project-tools">
+              <span class="tool-pill">Power BI</span>
+              <span class="tool-pill">DAX</span>
+              <span class="tool-pill">Data Modeling</span>
+            </div>
+            <button class="btn btn-secondary" onclick="openModal('modal-sales')">Read Case Study →</button>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-type">Product Analytics</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">TechNova Gadgets Analysis</h3>
+            <p class="project-desc">
+              Exploratory data analysis investigating whether promotional campaigns genuinely increased long-term customer retention.
+            </p>
+            <div class="project-tools">
+              <span class="tool-pill">Power BI</span>
+              <span class="tool-pill">Excel</span>
+              <span class="tool-pill">InsightsCircle</span>
+            </div>
+            <button class="btn btn-secondary" onclick="openModal('modal-technova')">Read Case Study →</button>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-type">Database Capstone</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Logistics Operations System</h3>
+            <p class="project-desc">
+              End-to-end database design and monitoring dashboard tracking transit bottleneck latency and delivery metrics.
+            </p>
+            <div class="project-tools">
+              <span class="tool-pill">PostgreSQL</span>
+              <span class="tool-pill">Power BI</span>
+            </div>
+            <button class="btn btn-secondary" onclick="openModal('modal-logistics')">Read Case Study →</button>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-type">Basic Web Development</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">WorkHive Website Platform </h3>
+            <p class="project-desc">
+              A modern job-matching platform and website
+            </p>
+            <div class="project-tools">
+              <span class="tool-pill">HTML</span>
+              <span class="tool-pill">CSS</span>
+            </div>
+            <button class="btn btn-secondary" onclick="openModal('modal-workhive')">Read Case Study →</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Case Study Modals -->
+
+  <!-- Modal 1: Sales -->
+  <div class="modal-overlay" id="modal-sales">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('modal-sales')">&times;</button>
+      <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Sales Performance Analysis</h3>
+      
+      <div class="modal-section">
+        <h4>Business Question</h4>
+        <p>Where are revenue leaks occurring across regions, and which product lines are dragging down overall profit margins?</p>
+      </div>
+
+      <div class="modal-section">
+        <h4>Data & Tools</h4>
+        <p>Multi-table relational transactions database analyzed using <strong>Power BI, DAX, Power Query, and Excel</strong>.</p>
+      </div>
+
+      <div class="modal-section">
+        <h4>Key Findings</h4>
+        <ul>
+          <li>Total revenue analyzed reached ₦2.33B across 2,098 unique customers.</li>
+          <li>15% of product catalog items generated 80% of total company profit.</li>
+          <li>Specific high-volume regional hubs suffered negative profit margins due to shipping inefficiencies.</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h4>Recommendations</h4>
+        <p>Restructure logistics routes in underperforming territories and reallocate marketing focus toward top 15% performing product SKUs to expand gross margins.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: TechNova -->
+  <div class="modal-overlay" id="modal-technova">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('modal-technova')">&times;</button>
+      <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">TechNova Gadgets Analysis</h3>
+      
+      <div class="modal-section">
+        <h4>Business Question</h4>
+        <p>Are high discount rates driving profitable customer retention, or simply eroding product margins?</p>
+      </div>
+
+      <div class="modal-section">
+        <h4>Data & Tools</h4>
+        <p>Customer transaction histories and e-commerce event logs evaluated using <strong>Python, SQL, and Power BI</strong>.</p>
+      </div>
+
+      <div class="modal-section">
+        <h4>Key Findings</h4>
+        <ul>
+          <li>Promotions increased initial order volume but failed to improve second-time repeat purchase rates.</li>
+          <li>Discounts were heavily consumed on low-margin accessories rather than high-margin flagship hardware.</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h4>Recommendations</h4>
+        <p>Transition from blanket site-wide discounts to targeted post-purchase retention sequences bundling accessories directly with flagship purchases.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Logistics -->
+  <div class="modal-overlay" id="modal-logistics">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('modal-logistics')">&times;</button>
+      <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Logistics Operations Database Capstone</h3>
+      
+      <div class="modal-section">
+        <h4>Business Question</h4>
+        <p>How can operational bottlenecks and shipment latency be monitored and reduced in real time?</p>
+      </div>
+
+      <div class="modal-section">
+        <h4>Data & Tools</h4>
+        <p>Normalized Relational SQL Schema, PostgreSQL CTEs, Window Functions, Power BI Dashboard.</p>
+      </div>
+
+      <div class="modal-section">
+        <h4>Key Findings</h4>
+        <ul>
+          <li>Delivery delay spikes occurred consistently during specific peak dispatch hours due to batch allocation constraints.</li>
+          <li>On-Time In-Full (OTIF) delivery metrics dropped 18% during peak hours.</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h4>Recommendations</h4>
+        <p>Implement staggered dispatch schedules and set automated SQL threshold alerts for delayed route dispatches.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: WorkHive -->
+  <div class="modal-overlay" id="modal-workhive">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('modal-workhive')">&times;</button>
+      <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">WorkHive Website Platform</h3>
+      
+      <div class="modal-section">
+        <h4>Project Overview & Goal</h4>
+        <p>Designed and developed a clean, user-friendly job-matching platform.</p>
+      </div>
+
+      <div class="modal-section">
+        <h4>Design & Tech Stack</h4>
+        <p>Built using <strong>HTML and CSS</strong> with a strong focus on responsive mobile-first layouts, clean navigation, and fast page-loading speeds.</p>
+      </div>
+
+      <div class="modal-section">
+        <h4>Key Features & Impact</h4>
+        <ul>
+          <li>Structured grid system allowing users to smoothly browse postings across various devices.</li>
+          <li>Optimized frontend components to reduce mobile user drop-off rates during registration flows.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Footer / Contact -->
+  <footer id="contact">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Ready to collaborate?</h2>
+        <p>Whether you need data analytics, dashboard building, or operational support, feel free to get in touch.</p>
+        <a href="mailto:efegloria24@gmail.com" class="btn btn-primary">Send Email: efegloria24@gmail.com</a>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Glory Oyiboka. All rights reserved.</div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="https://github.com/efegloria24" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none;">GitHub</a>
+          <a href="mailto:efegloria24@gmail.com" style="color: var(--text-muted); text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal on background click
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal-overlay')) {
+        event.target.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+  </script>
+</body>
+</html>
